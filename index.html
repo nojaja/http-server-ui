@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>http-server</title>
+</head>
+
+<body>
+    <h1>Starting up http-server</h1>
+    We are using node
+    <script>document.write(process.versions.node)</script>,
+    Chrome
+    <script>document.write(process.versions.chrome)</script>,
+    and Electron
+    <script>document.write(process.versions.electron)</script>.
+
+    <div id='log'></div>
+    <script>
+const { ipcRenderer } = require('electron')
+
+ipcRenderer.on('terminal', (event, arg) => {
+  // div要素を生成
+  var p = document.createElement('p');
+  p.appendChild( document.createTextNode(arg) );
+  // 生成したdiv要素を追加する
+  document.getElementById('log').appendChild(p);
+
+})
+   </script>
+</body>
+
+</html>
