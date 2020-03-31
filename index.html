@@ -16,6 +16,7 @@
     <script>document.write(process.versions.electron)</script>.
 
     <div id='log'></div>
+    <div id='list'></div>
     <script>
 const { ipcRenderer } = require('electron')
 
@@ -25,6 +26,15 @@ ipcRenderer.on('terminal', (event, arg) => {
   p.appendChild( document.createTextNode(arg) );
   // 生成したdiv要素を追加する
   document.getElementById('log').appendChild(p);
+
+})
+
+ipcRenderer.on('addlist', (event, arg) => {
+  // div要素を生成
+  var p = document.createElement('p');
+  p.appendChild( document.createTextNode(arg) );
+  // 生成したdiv要素を追加する
+  document.getElementById('list').appendChild(p);
 
 })
    </script>

@@ -81,6 +81,7 @@ if (!argv.s && !argv.silent) {
           colors.red(error.status.toString()), colors.red(error.message)
         );
         win.webContents.send('terminal', `[${date}] ${ip} "${req.method} ${req.url}" Error (${error.status.toString()}): "${error.message}"`);
+        win.webContents.send('addlist', `${req.method}	${req.url}`);
       }
       else {
         logger.info(
