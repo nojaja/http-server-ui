@@ -7,8 +7,7 @@ builder.build({
             'target': {
                 'target': 'zip',
                 'arch': [
-                    'x64',
-                    'ia32',
+                    'x64'
                 ]
             }
         }

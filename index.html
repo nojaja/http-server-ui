@@ -4,6 +4,19 @@
 <head>
     <meta charset="UTF-8">
     <title>http-server</title>
+
+  <style>
+    #log {
+      height: 200px;
+      width: 100%;
+      overflow-y: scroll;
+    }
+    #list {
+      height: 200px;
+      width: 100%;
+      overflow-y: scroll;
+    }
+  </style>
 </head>
 
 <body>
@@ -15,7 +28,8 @@
     and Electron
     <script>document.write(process.versions.electron)</script>.
 
-    <div id='log'></div>
+    <div id='log'></div><br />
+    <p>404: Not found List(GETのみ)</p>
     <div id='list'></div>
     <script>
 const { ipcRenderer } = require('electron')
@@ -29,7 +43,7 @@ ipcRenderer.on('terminal', (event, arg) => {
 
 })
 
-ipcRenderer.on('addlist', (event, arg) => {
+ipcRenderer.on('addNotFoundList', (event, arg) => {
   // div要素を生成
   var p = document.createElement('p');
   p.appendChild( document.createTextNode(arg) );

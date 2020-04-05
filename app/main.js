@@ -1,6 +1,8 @@
 const { app, BrowserWindow, ipcMain } = require('electron')
 
 let win
+let notFoundList = new Map()
+
 var colors     = require('colors/safe'),
     os         = require('os'),
     httpServer = require('http-server'),
@@ -81,7 +83,12 @@ if (!argv.s && !argv.silent) {
           colors.red(error.status.toString()), colors.red(error.message)
         );
         win.webContents.send('terminal', `[${date}] ${ip} "${req.method} ${req.url}" Error (${error.status.toString()}): "${error.message}"`);
-        win.webContents.send('addlist', `${req.method}	${req.url}`);
+
+        if(req.method == 'GET' && error.status.toString() == '404' && !notFoundList.has(req.url)){
+          notFoundList.set(req.url,req.url);
+          win.webContents.send('addNotFoundList', `${req.method} ${req.url}`);
+        }
+
       }
       else {
         logger.info(
@@ -218,7 +225,7 @@ function createWindow() {
     //ウインドウの作成
     win = new BrowserWindow({
         width: 700,
-        height: 400,
+        height: 800,
         webPreferences: {
             nodeIntegration: true, //Electron6から必要らしい
         }
