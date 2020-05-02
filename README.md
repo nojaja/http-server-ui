@@ -11,16 +11,12 @@ local development, and learning.
 
 ![screenshot](/assets/screenshots/screenshot.png)
 
-
 ## Installation
-```
-git clone https://github.com/nojaja/http-server-ui.git
-npm install
-```
+[v0.0.2](https://github.com/nojaja/http-server-ui/releases/tag/v0.0.2)
 
 ## Usage
 ```
-npm run start [path] [options]
+http-server-ui.exe [path] [options]
 ```
 `[path]` defaults to `./public` if the folder exists, and `./` otherwise.
 
@@ -29,7 +25,6 @@ Now you can visit ___http://localhost:8080___ to view your server
 Note: Caching is on by default. Add `-c-1` as an option to disable caching.
 
 ## Available Options
-## Available Options:
 
 `-p` or `--port` Port to use (defaults to 8080)
 
@@ -120,6 +115,24 @@ Available on:
   https:192.168.1.104:8080
 Hit CTRL-C to stop the server
 ```
+## development
+```
+git clone https://github.com/nojaja/http-server-ui.git
+npm install
+npm run start
+```
+
+## development-dist
+```
+npm run dist
+```
+
+## publish
+```
+git tag v0.0.0
+git push --tags
+```
+start CI ⇒ make release file
 
 ## License
 
