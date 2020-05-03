@@ -9,7 +9,7 @@
 It is powerful enough for production usage, but it's simple and hackable enough to be used for testing, 
 local development, and learning.
 
-![screenshot](/assets/screenshots/ss2.png)
+![screenshot](/assets/screenshots/ss02.png)
 
 ## Installation
 [v0.0.1](https://github.com/nojaja/http-server-ui/releases/tag/v0.0.1)
