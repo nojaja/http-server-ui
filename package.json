@@ -15,7 +15,7 @@
   "author": "nojaja",
   "license": "MIT",
   "devDependencies": {
-    "electron": "^8.2.5",
+    "electron": "^8.5.1",
     "electron-builder": "^22.6.0"
   },
   "dependencies": {
